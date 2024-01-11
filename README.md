@@ -4,7 +4,7 @@ Este es un repositorio donde se tiene un proyecto asociado a un API construida c
 # Enlaces
   - [Jenkins](http://157.253.238.75:8080/jenkins-misovirtual/)
   - [Sonar](http://157.253.238.75:8080/sonar-misovirtual/)
-
+  - [Parcial Practico](https://github.com/jsanchezl12/parcialpractico_APIs)
 
 # Crear un modulo
   nest g mo culturagastronomica
