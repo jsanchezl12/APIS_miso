@@ -1,0 +1,72 @@
+query {
+  findRecetasByGCultureId(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1") {
+    id
+    nombre
+    proceso
+    descripcion
+    urlFotoPlato
+    urlVideoPreparacion
+  }
+}
+
+query {
+  findRecetaByGCultureIdRecetaId(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", recetaId: "e27b092c-f5b8-4e60-a4b1-6d05597c4807") {
+    nombre
+    proceso
+    descripcion
+    urlFotoPlato
+    urlVideoPreparacion
+  }
+}
+
+mutation {
+  addRecipeGCulture(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", recetaId: "e27b092c-f5b8-4e60-a4b1-6d05597c4807") {
+    id
+    nombre
+    recetas { 
+      nombre
+      proceso
+      descripcion
+      urlFotoPlato
+      urlVideoPreparacion
+    }
+  }
+}
+
+/*
+Agregar el id del pais en el DTO
+@Field({ nullable: true })
+@IsString()
+readonly id: string;
+*/
+mutation {
+  associateRecetaGCulture(
+    gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", 
+    recetas:[
+    { 
+      id: "e27b092c-f5b8-4e60-a4b1-6d05597c4807"
+      nombre: "Receta 1"
+      proceso: "Proceso 1"
+      descripcion: "Descripcion 1"
+      urlFotoPlato: "urlFotoPlato 1"
+      urlVideoPreparacion: "urlVideoPreparacion 1"
+    }
+  ]) {
+    id
+    nombre
+    recetas { 
+      nombre
+      proceso
+      descripcion
+      urlFotoPlato
+      urlVideoPreparacion
+    }
+  }
+}
+
+mutation {
+  deleteRecetaGCulture(
+    gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", 
+    recetaId: "e27b092c-f5b8-4e60-a4b1-6d05597c4807"
+  ) 
+}

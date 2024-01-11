@@ -1,0 +1,69 @@
+query {
+  findRestauranteByGCultureId(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1") {
+    id
+    name
+    description
+    numberStars
+    date
+  }
+}
+
+query {
+  findRestauranteByGCultureIdRestauranteId(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", restauranteId: "c5d3e8ff-d6e4-46a6-8df7-22756fc46234") {
+    id
+    name
+    description
+    numberStars
+    date
+  }
+}
+
+mutation {
+  addRestaurantGCulture(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", restauranteId: "c5d3e8ff-d6e4-46a6-8df7-22756fc46234") {
+    id
+    nombre
+    restaurante {
+      id 
+      name
+      description
+      numberStars
+      date
+    }
+  }
+}
+
+/*
+Agregar el id del pais en el DTO
+@Field({ nullable: true })
+@IsString()
+readonly id: string;
+*/
+mutation {
+  associateRestauranteGCulture(
+    gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", 
+    restaurante: {
+      id: "c5d3e8ff-d6e4-46a6-8df7-22756fc46234",
+      name: "Restaurante 1",
+      description: "Restaurante 1",
+      numberStars: 5,
+      date: "2020-01-01"
+  	}
+  ) {
+    id
+    nombre
+    restaurante { 
+      id
+      name
+      description
+      numberStars
+      date
+    }
+  }
+}
+
+mutation {
+  deleteRestauranteGCulture(
+    gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", 
+    restauranteId: "c5d3e8ff-d6e4-46a6-8df7-22756fc46234"
+  ) 
+}

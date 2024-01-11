@@ -1,0 +1,57 @@
+query {
+  findPaisByGCultureId(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1") {
+    id
+    nombre
+    descripcion
+  }
+}
+
+query {
+  findPaisByGCultureIdPaisId(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", paisId: "01b82acc-fb22-4597-a90e-b36f3ce9d3f7") {
+    id
+    nombre
+    descripcion
+  }
+}
+
+mutation {
+  addCountryGCulture(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", paisId: "01b82acc-fb22-4597-a90e-b36f3ce9d3f7") {
+    id
+    nombre
+    pais { 
+    	nombre
+      descripcion
+    }
+  }
+}
+
+/*
+Agregar el id del pais en el DTO
+@Field({ nullable: true })
+@IsString()
+readonly id: string;
+*/
+mutation {
+  associatePaisGCulture(
+    gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", 
+    pais: {
+      id: "01b82acc-fb22-4597-a90e-b36f3ce9d3f7"
+      nombre: "Portugal"
+      descripcion: "Morbi vel lectus in quam fringilla rhoncus."
+  	}
+  ) {
+    id
+    nombre
+    pais { 
+    	nombre
+      descripcion
+    }
+  }
+}
+
+mutation {
+  deletePaisGCulture(
+    gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", 
+    paisId: "01b82acc-fb22-4597-a90e-b36f3ce9d3f7"
+  ) 
+}

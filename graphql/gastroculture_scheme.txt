@@ -1,0 +1,46 @@
+query {
+  gastrocultures {
+    id
+    nombre
+    descripcion
+  }
+}
+
+query {
+  gastroculture(id: "0547e57c-c77c-40f5-b344-13c4cff838d1") {
+    id
+    nombre
+    descripcion
+  }
+}
+
+mutation {
+  createGastroculture(culturagastronomica: {
+    nombre: "Comida Italiana"
+    descripcion: "Test comida italiana"
+  }) {
+    id
+    nombre
+    descripcion
+  }
+}
+
+mutation {
+  updateGastroculture(
+    id: "aa1abd06-4e25-4415-92e1-7d6254ddfd56",
+    culturagastronomica: {
+      nombre: "Comida Italiana v2"
+      descripcion: "Test comida italiana v2"
+    }
+  ) {
+    id
+    nombre
+    descripcion
+  }
+}
+
+mutation {
+  deleteGastroculture(
+    id: "aa1abd06-4e25-4415-92e1-7d6254ddfd56"
+  )
+}

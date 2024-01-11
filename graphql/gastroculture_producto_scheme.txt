@@ -1,0 +1,60 @@
+query {
+  findProductoByGCultureId(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1") {
+    id
+    nombre
+    descripcion
+  }
+}
+
+query {
+  findProductoByGCultureIdProductoId(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", productoId: "d2ad4317-d32f-4336-a521-5129531e98de") {
+    id
+    nombre
+    descripcion
+  }
+}
+
+mutation {
+  addProductGCulture(gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", productoId: "d2ad4317-d32f-4336-a521-5129531e98de") {
+    id
+    nombre
+    producto { 
+      nombre
+      descripcion
+      categoria
+    }
+  }
+}
+
+/*
+Agregar el id del pais en el DTO
+@Field({ nullable: true })
+@IsString()
+readonly id: string;
+*/
+mutation {
+  associateProductoGCulture(
+    gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", 
+    producto: {
+      id: "d2ad4317-d32f-4336-a521-5129531e98de"
+      nombre: "Producto 1"
+      descripcion: "Descripcion 1"
+      categoria: "Categoria 1"
+  	}
+  ) {
+    id
+    nombre
+    producto { 
+      nombre
+      descripcion
+      categoria
+    }
+  }
+}
+
+mutation {
+  deleteProductoGCulture(
+    gcultureId: "0547e57c-c77c-40f5-b344-13c4cff838d1", 
+    productoId: "d2ad4317-d32f-4336-a521-5129531e98de"
+  ) 
+}

@@ -1,0 +1,46 @@
+query {
+  Paises {
+    id
+    nombre
+    descripcion
+  }
+}
+
+query {
+  Pais(id: "dde6a088-9aec-459e-93e9-e8a1848d4d38") {
+    id
+    nombre
+    descripcion
+  }
+}
+
+mutation {
+  createPais(Pais: {
+    nombre: "Emiratos Arabes Unidos"
+    descripcion: "Medio Oriente"
+  }) {
+    id
+    nombre
+    descripcion
+  }
+}
+
+mutation {
+  updatePais(
+    id: "df6e0dac-3705-450f-baef-1ff33c915103",
+    Pais: {
+      nombre: "Albania"
+      descripcion: "Nor Este de Europa"
+    }
+  ) {
+    id
+    nombre
+    descripcion
+  }
+}
+
+mutation {
+  deletePais(
+    id: "df6e0dac-3705-450f-baef-1ff33c915103"
+  )
+}

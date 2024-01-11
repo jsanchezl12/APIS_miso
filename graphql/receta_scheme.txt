@@ -1,0 +1,65 @@
+
+query {
+  Recetas {
+    id
+    nombre
+    proceso
+    descripcion
+    urlFotoPlato
+    urlVideoPreparacion
+  }
+}
+
+query {
+  Receta(id: "2f5f8202-55cb-4c15-a1b7-1fd442292041") {
+    id
+    nombre
+    proceso
+    descripcion
+    urlFotoPlato
+    urlVideoPreparacion
+  }
+}
+
+mutation {
+  createReceta(Receta: {
+    nombre: "Nombre de la Receta"
+    proceso: "Proceso de preparación"
+    descripcion: "Descripción de la receta"
+    urlFotoPlato: "URL de la foto del plato"
+    urlVideoPreparacion: "URL del video de preparación"
+  }) {
+    id
+    nombre
+    proceso
+    descripcion
+    urlFotoPlato
+    urlVideoPreparacion
+  }
+}
+
+mutation {
+  updateReceta(
+    id: "2f5f8202-55cb-4c15-a1b7-1fd442292041",
+    Receta: {
+      nombre: "Nuevo Nombre"
+      proceso: "Nuevo Proceso"
+      descripcion: "Nueva Descripción"
+      urlFotoPlato: "Nueva URL de Foto"
+      urlVideoPreparacion: "Nueva URL de Video"
+    }
+  ) {
+    id
+    nombre
+    proceso
+    descripcion
+    urlFotoPlato
+    urlVideoPreparacion
+  }
+}
+
+mutation {
+  deleteReceta(
+    id: "2f5f8202-55cb-4c15-a1b7-1fd442292041"
+  )
+}

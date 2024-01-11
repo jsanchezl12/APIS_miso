@@ -1,0 +1,48 @@
+query {
+  restaurantes {
+    id
+    name
+  }
+}
+
+query {
+    restaurante(id: "cf336255-fe2e-485a-82c0-de905a725f1e") {
+        id
+        name
+        description
+    } 
+}
+
+mutation {
+  createRestaurante(restaurante: {
+    name: "Museo del oro"
+    description: "Museo insignia de Colombia"
+    numberStars: 3
+    date: "2022-02-01"
+  }) {
+    id
+    name
+  }
+}
+
+mutation {
+  updateRestaurante(
+    id: "64e277dc-d2fa-4f7a-adf5-c36af9e12fde"
+    restaurante: {
+      name: "Restaurante Comida Italiana v2"
+      description: "Actualización restaurante comida italiana v2"
+      numberStars: 3
+      date: "2020-01-01"
+    }
+  ) {
+    id
+    name
+    description
+  }
+}
+
+mutation {
+  deleteRestaurante(
+    id: "64e277dc-d2fa-4f7a-adf5-c36af9e12fde"
+  )
+}

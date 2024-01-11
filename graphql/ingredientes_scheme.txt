@@ -1,0 +1,46 @@
+query {
+  ingredientes {
+    id
+    name
+  }
+}
+
+query {
+    ingrediente(id: "c877fb99-4643-4c69-bb2e-0ca7512cdf31") {
+        id
+        name
+        description
+    } 
+}
+
+mutation {
+  createIngrediente(ingrediente: {
+    name: "Pepinillos"
+    description: "Ingrediente primordial para la elaboración de hamburguesas"
+    count: 10
+  }) {
+    id
+    name
+  }
+}
+
+mutation {
+  updateIngrediente(
+    id: "e575c016-d312-4f42-b7dc-7a6091f9f03b"
+    ingrediente: {
+      name: "Pepinillos Americanos"
+      description: "Actualización restaurante comida italiana v2"
+      count: 10
+    }
+  ) {
+    id
+    name
+    description
+  }
+}
+
+mutation {
+  deleteIngrediente(
+    id: "e575c016-d312-4f42-b7dc-7a6091f9f03b"
+  )
+}

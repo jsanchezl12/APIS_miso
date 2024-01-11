@@ -1,0 +1,52 @@
+query {
+  regions {
+    id
+    nombre
+    estado
+    descripcion
+  }
+}
+
+query {
+  region(id: "67b415b0-dfcc-41d1-bb29-c33a5294ed22") {
+    id
+    nombre
+    estado
+    descripcion
+  }
+}
+
+mutation {
+  createRegion(Region: {
+    nombre: "Rio las flor"
+    estado: "Amazonia"
+    descripcion: "el pulmon del mundo"
+  }) {
+    id
+    nombre
+    estado
+    descripcion
+  }
+}
+
+mutation {
+  updateRegion(
+    id: "3c877f9a-c154-485c-8ca8-6ab8fc3e8576",
+    Region: {
+      nombre: "El rio mas bello el mundo"
+      estado: "Llanos Orientales"
+      descripcion: "uno de los departamantos mas largos de colombia"
+    }
+  ) {
+    id
+    nombre
+    estado
+    descripcion
+  }
+}
+
+mutation {
+  deleteRegion(
+    id: "3c877f9a-c154-485c-8ca8-6ab8fc3e8576"
+  )
+}

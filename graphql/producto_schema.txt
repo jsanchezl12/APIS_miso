@@ -1,0 +1,53 @@
+# producto_scheme.txt
+query {
+  Productos {
+    id
+    nombre
+    descripcion
+    categoria
+  }
+}
+
+query {
+  Producto(id: "dd482cbe-6139-415f-b7ab-2cf85e550cd0") {
+    id
+    nombre
+    descripcion
+    categoria
+  }
+}
+
+mutation {
+  createProducto(Producto: {
+    nombre: "Nombre del Producto"
+    descripcion: "Descripción del Producto"
+    categoria: "Categoría del Producto"
+  }) {
+    id
+    nombre
+    descripcion
+    categoria
+  }
+}
+
+mutation {
+  updateProducto(
+    id: "dd482cbe-6139-415f-b7ab-2cf85e550cd0",
+    Producto: {
+      nombre: "Nuevo Nombre"
+      descripcion: "Nueva Descripción"
+      categoria: "Nueva Categoría"
+    }
+  ) {
+    id
+    nombre
+    descripcion
+    categoria
+  }
+}
+
+mutation {
+  deleteProducto(
+    id: "dd482cbe-6139-415f-b7ab-2cf85e550cd0"
+  )
+}
